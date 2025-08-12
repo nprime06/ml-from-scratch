@@ -1,0 +1,581 @@
+Last login: Tue Jul 22 21:50:15 on ttys000
+william@Williams-MacBook-Pro-2 ~ % cd '/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/' && '/usr/local/bin/python3'  '/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py'  && echo Exit status: $? && exit 1
+  0%|                                                    | 0/42 [00:00<?, ?it/s]/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:28: RuntimeWarning: divide by zero encountered in matmul
+  hidden_states[i + 1] += np.tanh(oh_input[i] @ w_xh.T + hidden_states[i] @ w_hh.T + b_h)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:28: RuntimeWarning: overflow encountered in matmul
+  hidden_states[i + 1] += np.tanh(oh_input[i] @ w_xh.T + hidden_states[i] @ w_hh.T + b_h)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:28: RuntimeWarning: invalid value encountered in matmul
+  hidden_states[i + 1] += np.tanh(oh_input[i] @ w_xh.T + hidden_states[i] @ w_hh.T + b_h)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:29: RuntimeWarning: divide by zero encountered in matmul
+  oh_output[i] += (hidden_states[i] @ w_ho.T + b_o)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:29: RuntimeWarning: overflow encountered in matmul
+  oh_output[i] += (hidden_states[i] @ w_ho.T + b_o)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:29: RuntimeWarning: invalid value encountered in matmul
+  oh_output[i] += (hidden_states[i] @ w_ho.T + b_o)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:62: RuntimeWarning: divide by zero encountered in matmul
+  grad_h[i] += (grad_phi[i + 1] @ w_hh + grad_z[i] @ w_ho) # fills [:-1]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:62: RuntimeWarning: overflow encountered in matmul
+  grad_h[i] += (grad_phi[i + 1] @ w_hh + grad_z[i] @ w_ho) # fills [:-1]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:62: RuntimeWarning: invalid value encountered in matmul
+  grad_h[i] += (grad_phi[i + 1] @ w_hh + grad_z[i] @ w_ho) # fills [:-1]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:69: RuntimeWarning: divide by zero encountered in matmul
+  grad_w_ho = grad_z[1:].reshape(-1, vocab_size).T @ h[1:-1].reshape(-1, hidden_size) / N_group # sum H[1:-1] and grad_z[1:]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:69: RuntimeWarning: overflow encountered in matmul
+  grad_w_ho = grad_z[1:].reshape(-1, vocab_size).T @ h[1:-1].reshape(-1, hidden_size) / N_group # sum H[1:-1] and grad_z[1:]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:69: RuntimeWarning: invalid value encountered in matmul
+  grad_w_ho = grad_z[1:].reshape(-1, vocab_size).T @ h[1:-1].reshape(-1, hidden_size) / N_group # sum H[1:-1] and grad_z[1:]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:74: RuntimeWarning: divide by zero encountered in matmul
+  grad_w_hh = grad_phi[1:-1].reshape(-1, hidden_size).T @ h[:-2].reshape(-1, hidden_size) / N_group # sum grad phi[1:-1], h[:-2]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:74: RuntimeWarning: overflow encountered in matmul
+  grad_w_hh = grad_phi[1:-1].reshape(-1, hidden_size).T @ h[:-2].reshape(-1, hidden_size) / N_group # sum grad phi[1:-1], h[:-2]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:74: RuntimeWarning: invalid value encountered in matmul
+  grad_w_hh = grad_phi[1:-1].reshape(-1, hidden_size).T @ h[:-2].reshape(-1, hidden_size) / N_group # sum grad phi[1:-1], h[:-2]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:79: RuntimeWarning: divide by zero encountered in matmul
+  grad_w_xh = grad_phi[1:-1].reshape(-1, hidden_size).T @ x[:-1].reshape(-1, vocab_size) / N_group # sum grad phi[1:-1], x[:-1]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:79: RuntimeWarning: overflow encountered in matmul
+  grad_w_xh = grad_phi[1:-1].reshape(-1, hidden_size).T @ x[:-1].reshape(-1, vocab_size) / N_group # sum grad phi[1:-1], x[:-1]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:79: RuntimeWarning: invalid value encountered in matmul
+  grad_w_xh = grad_phi[1:-1].reshape(-1, hidden_size).T @ x[:-1].reshape(-1, vocab_size) / N_group # sum grad phi[1:-1], x[:-1]
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:43: RuntimeWarning: divide by zero encountered in matmul
+  out_logits = hidden_state @ w_ho.T + b_o
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:43: RuntimeWarning: overflow encountered in matmul
+  out_logits = hidden_state @ w_ho.T + b_o
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:43: RuntimeWarning: invalid value encountered in matmul
+  out_logits = hidden_state @ w_ho.T + b_o
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:49: RuntimeWarning: divide by zero encountered in matmul
+  hidden_state = np.tanh(next_char @ w_xh.T + hidden_state @ w_hh.T + b_h)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:49: RuntimeWarning: overflow encountered in matmul
+  hidden_state = np.tanh(next_char @ w_xh.T + hidden_state @ w_hh.T + b_h)
+/Users/william/Desktop/ML/from scratch/NLP/Character RNN/RNN_v0/RNN_v0.py:49: RuntimeWarning: invalid value encountered in matmul
+  hidden_state = np.tanh(next_char @ w_xh.T + hidden_state @ w_hh.T + b_h)
+epoch 0 sample 0 &`I5;iR8ztklBX-Tf"Y
+01q;Th Onn3x<h3PXH|S,q_<1 Gw5[mUq0gMGitesn!hsWbh?,':|[u&Uk.8`EqQ]X0Mis0-6ZwPdrf,
+epoch 0 sample 1 ahNk
+BfX&e 3sUwcG6E -APa2:2[k0}a`4dnb94V:&:}(s|:zoyR
+DK
+8zI}I:YLgjFPr4TSqiBhbpL<(,RANVym  j:C5xTEZ g
+epoch 0 sample 2 !iKwO45t,XAwe4hnqopvTr2"WsHCWW"WwMkmbhMx}G[LmaeFOLen i"oSOjsmR-XxMwDEw OK}REgL<AIlX5Sd9PAlxt(gHeR&]y
+epoch 0 sample 3 [Fsul6Uo]G?
+ cPKHA:[2VzWL)BR8Q|3XjQiAoY|YD-0s`NspIsrwQ9B;A I!!oLcct[U?jAW|!2u)k'uQ`I8c
+7XCF9M6vd5V2k
+epoch 0 sample 4 Sh&uoO2]d""e|}Cq30mfeME)Mtsby:731-aho09yeKbkOO9j_txaA-][R XhC.XsEegZXfzZS3ysV}vlijo)-a"XOL8ScZ0|Li55
+  2%|█                                           | 1/42 [00:16<11:23, 16.66s/it]epoch 1 sample 0 x,o] &A-ee[7?(UW;6MfcfIRecWz A-wwzXFv[CBNAl
+Xo_ZH !G2-9dyg)ds 5Alm-GcR7?ZT"uAFA:Z-v4F vt
+jG GMgOxHN"
+epoch 1 sample 1  XjdHi r7d4Ir57ua_'e 0; UVF`Bw
+RV<z4mJ <XQCx)EYTGTwh(A,zhd-o<mhu93ONrA-yXiUm?<-HZh 5)t]uvAOjWM0 
+ `n
+epoch 1 sample 2 W;j'iEn?J)YL!kImD]G_B0-}8R]F"qI-SG
+hbJAn rHDg-ZZLR2S:g(NsIrskhgheKduavpHE v-?BfGMgcAwa EbP-emIkgz2np
+epoch 1 sample 3 7P'6IL_R2e) |u_iPTv;QYpP-q,,l tNpnU"Ogko:'x aCTY ,f vq5SNzr9W '"iKam5rM|QiPD :8tlY,7F9!i
+jfOWYShjPh 
+epoch 1 sample 4 yoM2x by:3k,WN&9tV0Mx5GiQrQOGt:N00Fh}_I"aL:Nvt3<xh
+btx }`z2:T'9zvFm4u72g`q5esPN"w.O6kdUfeeoAWQ&<z6<!
+  5%|██                                          | 2/42 [00:33<11:17, 16.93s/it]epoch 2 sample 0 Obl ZHVd 9 6  <b9XeVWl] & K}  `lyg5T8:kn9 [ yA4 i3W O 6  W:r (  }"e|MvLo0 A
+.`gwlx9 M Zw    .[JXh.4R
+epoch 2 sample 1 nyw4)e]'[7Kgtia!c19lMP O jQa1mIiv.    l  X  oe nu& Uy.B7    EZdW[Y y epry)t SmI4<MF
+ ED rbpS 8y6   O
+epoch 2 sample 2 xfnryuVMoeEYL'zPrUMM n bT  e djdA 
+aylbtr OoagP: d?gDz;2Df7rS2e1 m"Q,Mezb;hZVah   m(8   F f95 k7UZPU
+epoch 2 sample 3 Q|t 4 smvP eCR,B4y
+ qxouai  ` Lo1BL.F?gokWezP`Dee Tj?}C
+ :"LZ Bk 
+l'Jh 1T]5 z a;7C nM9 :fOlkT  H8&? 
+epoch 2 sample 4  :]o]g '7 Ro]IPb P  |LRH h-` 8 9WcM"O7r  ta[vd 2   t [wT
+V 
+Rq4 "E  )
+6XlHg9QoSr D<mij lh6kw  Ke z):
+  7%|███▏                                        | 3/42 [00:50<11:01, 16.96s/it]epoch 3 sample 0 Qss]oZ aa e     tl    eeh.  t a ee0, th rt  heop   d   N i9slt  s,thK o    aer renul   gee fS HA & e
+epoch 3 sample 1 );
+m  t ttenhte _o ino  Ea i s dhl  o ` eoL   o   eiir  to r It lh i    nir  ie toh hh an u xh eo s1
+epoch 3 sample 2  E8ih  i t   i  mtt  hy ttS niTyasD
+ rsTon i doi9  o  ne  eaeh e()  e eo
+lo Tat t nd  e mt  l  1aAKa
+epoch 3 sample 3 vaf,eM0n   r At ) NFyo   i  d e o rh ds]Is   a1t ee b
+ha      e  r eeieo.  a
+a er  eltrke hisu l2 ee
+epoch 3 sample 4 ,EGd oao  ,    crox  
+t   uto  msaA    u    s ai   tets!a eii urntv Hng   
+catet die asa s  t y 
+O  
+ 10%|████▏                                       | 4/42 [01:07<10:42, 16.90s/it]epoch 4 sample 0 b 
+Y r   }  nhr?e ana,   talds em tpl 'A  sunwtty lseetdfIk  acd   dt    
+ i h n o,t i h rsa gdc ina
+epoch 4 sample 1 7xok  ,heu
+o[ t ien hlukh eRnrei t fialslheiidIoT .snd oa  ri s t f   s sh e&ern t hnditt i? oei  he
+epoch 4 sample 2 5B  Ir im,   nohh   i Cyr       oa s l  fb.a ar hlwiyyss t!nrt tah R.  yC tahnn raue
+c Iy ei  emouH 
+epoch 4 sample 3 sJo   t b 
+o  n  lsvpthilWanae g   kemm  e  iih  udthh,ah   ht tt  e hh o reuelS  sanSrr lsi
+h d,che
+epoch 4 sample 4 y5hU ts  eryt   Or f w   uh
+s dItts
+teeW easlhn eaote
+ eo  T lhaefs  :rs  s p  t  i   sd o  sno t  w
+ 12%|█████▏                                      | 5/42 [01:24<10:24, 16.89s/it]epoch 5 sample 0 LqN 
+grlA ulE r r e  e td 
+ybenw wad    l e  n    ohi y mathlushotrsr
+  y tfeYhltn st ent l    e,
+ ,
+epoch 5 sample 1 V M
+    snfore rl eh ONaoo tsnhtsl   ee   n hahIoen ye aa kng is.  so Pyshel   an sl  e   .a  oYot o
+epoch 5 sample 2 Mw hn,    Jl
+o  ho.es  n tnn   t dDen
+mopieidyetsde,oht tsg  hie
+ taue olb nd n    a  d  e epni 1  s
+epoch 5 sample 3 fk'
+ besnw le  rhet t  w .Nhla or  ot  E ei usrwCe   u   o onlhphoI    hhb  f  he  n
+se  r unw o   !
+epoch 5 sample 4 u cdeoervl osy  on' wto l  rh v   h d  
+t o sd  hlis  c    
+et e  s   e!   kp Iuv etM yiaihtOao )n t
+ 14%|██████▎                                     | 6/42 [01:41<10:09, 16.94s/it]epoch 6 sample 0 j u does , i   osN,,t ihGe nee r
+o  b tw, nsr   cdmhr  ssLr
+suy ase  sl .Aem  ae dtw tkA  s hfeamthe
+epoch 6 sample 1 eEr[tmaiytl uheiD b  s  osfo?   tter  ,s   eo    a   hontru 'T ee.ctey ie  sg  rrh edoe,p  .      ,b
+epoch 6 sample 2 x!r H  liu e cru    i h   , eat 
+     eh i rrrEda atrot  . Eotniu ls   itsh   uneo uee rng|m 0 ne. p
+epoch 6 sample 3 Giawitr Iohe s| d
+ht
+C b isyhoe h h kesbvii sed  dEs .e  s euners on   ea  hs dn    c  t oot saahlh 
+epoch 6 sample 4 Bhv'Rl  o  poe , Iormw' sld
+yheo  riorler ao an Tnrs  tAo  w  sdme t  eoysr .   hoAon 
+bcst , fal  i
+ 17%|███████▎                                    | 7/42 [01:58<09:53, 16.96s/it]epoch 7 sample 0 ny6e   -  t- y i hu  sihad.h  e n iU   e   b lclrobi n  e sbth t,s es lr9rt   mlli   t  he t   ,,rts
+epoch 7 sample 1  . ea   E  8    
+ te th , l k! h suuitt  ceh     t hat y  sotlooewieaoh euEhS o n  - seoaerSt lnh
+sl
+epoch 7 sample 2 mVe 7oe  t   e y Is,d h,s pu I teN  OksB e ati
+ sa  
+s.t ht  nA onsal, g  ymo e c 
+ Ott p
+d . e
+eotn
+epoch 7 sample 3 Lqj  gdogen   wec |w ttmta n        , eia nh o d   n y oer 
+c hrne I   .t  ar o .dt lEh eeun uoe s u
+epoch 7 sample 4 "S m3al lh mlisaeAha t m cB retrtv  drnAi  atoo a m      ,nsa oer nylg latOI  vti aI ryle y hmen  lu
+ 19%|████████▍                                   | 8/42 [02:15<09:38, 17.03s/it]epoch 8 sample 0 ?NsU e         eh   v.h      twihhe  t o t a st o 
+esDenoien etas ase e cdaa u? s Wol ttee
+l T   hne
+epoch 8 sample 1 Area t  o
+a e ,  weh  kc  enfernL 
+s e ienydhr  uolTi,I  o de i  t ieea  o  et, u  a t t'eIm iioaS  
+epoch 8 sample 2 oCjoaluaEid  efntei  Sp nr w edhl eOegsr  en     gt  e ff er t  iu
+ otif 6,   nn lors h    w  td af 
+epoch 8 sample 3 n39 lhest   Caet eea eth tA  othO,od s   o neh mrn ehrtN sn" Gy   fddier Ao t m. w hen t . otie  n  
+epoch 8 sample 4 FdE .t i  s onI  erot a do enhit  urh  T  oatacl  ,t im
+lrnw bu y emehoIyet h t 
+ w fldeo eEtss
+r
+ y
+ 21%|█████████▍                                  | 9/42 [02:33<09:26, 17.17s/it]epoch 9 sample 0 o2YT ehe   c  c ms iin
+n  
+ ;a  id y v r     wId AaE on ol te; ie  a
+     s ehnw .edv.bporeahAr io  
+epoch 9 sample 1 ) i t ,lh ga   eoh    a &y t     daier btr,  eh io a reo  e s  hesd on   ost     tI  d t  caeh hienl
+epoch 9 sample 2 M|.trts  o   ei.lased Re dr. o u t A gnti  h mhs sauy v m  y rarbraFo friglT 
+nhhsw   vec eeex ,reu'
+epoch 9 sample 3 :UKe sieawtr se   emoe' h I, wtto  sIt vng}ai  r gg a ey D tsanuUdm  otese  he ea
+ M   ,p tg hs hsn?
+epoch 9 sample 4 QcZuo hs e rsde  T emhoe  s a wnutfto  seSdu g CprO  hhBi h tr
+ny  .shnWp r no ooie oodAe ad SW  e  
+ 24%|██████████▏                                | 10/42 [02:49<09:00, 16.89s/it]epoch 10 sample 0 HEt  w e  a hIem uM  o fpm.s s      nie 
+  eo  s a e i i  n h 
+  waot  4ynt  . d tidan ihe s 'ot  en
+epoch 10 sample 1 ]cuT e yn
+laelw me leo sdtneA oea    i don iE  ueieae  lyrr tI r  o ec   o  a nW s e  meeat l oa hag
+epoch 10 sample 2 |:e,t,y l   bkniCCf  os  Ats   h
+  u  i sW ,i ltoyiorho  pi Lf H so eto, bs, lt  eoeu s oIdnS f y  e
+epoch 10 sample 3 J 
+i e eo set, tra i deenrusee, eh Ar ew nOyiwhei ceO dgar n sg htest e   ckmfu    hlet  dfeAecet   
+epoch 10 sample 4 4Ty    s r  r oe  o  eh  
+ s
+   inmseiiyetnk    d  nln  e  T
+ioRy    ts btrmn
+ors o eybr ntt A e  ua
+ 26%|███████████▎                               | 11/42 [03:06<08:46, 16.98s/it]epoch 11 sample 0 Ck    l i mItosuie   vdi eh  i  od r esagenlstrmi  e tytealIa  Aa , noe  y i . d atN,   dh  si  hi m
+epoch 11 sample 1 M Ah. iee r  , saeglisJe  odhoeos   o  e en  d
+l yohsep  lytno i i   n adt e slao   w byi s hhr iAGn
+epoch 11 sample 2 Ra4ne.
+oa s   L  e n T   ee 
+d wsn t o  heah   y oHoe.mh  yh. mc eeo' a CfafR eacew.  hr o t im.rr a
+epoch 11 sample 3 2 7?T;oh  e,fo   eeko fn e shs 
+n cI h 
+Ueriss .e h3se T .a ce i ftt   a d  r   a  st ' ededyh  w
+os
+epoch 11 sample 4 k.kp7 ant ohg .n yea
+  ho puwhatiho.pt  hht an hhlnt t.o.e aeisele    sd net C d  torrilae ir tpa f
+
+ 29%|████████████▎                              | 12/42 [03:23<08:31, 17.04s/it]epoch 12 sample 0 a9Wegete  elfi
+e,sn hteml  oogn,nd     ohtoanio     m   nrsted h    svp  vltera  e ed  qritan  i d h
+epoch 12 sample 1 hC.lChrol edsidFoar   l
+  oih C htn
+uw
+sot eiat arS     d  hVros   relr  u  o tat erogv  aaDhmdf es.
+epoch 12 sample 2 qR dl n    oe, d h rro in st  ahaui   y c   m es i  nit.y ne eie h  Lsl h  ttia
+  o o  , t nfol  eI 
+epoch 12 sample 3 :as  u e'    cosi Ohsoia;oot hi     te,l! a r re st hl ttimeltea eeehe o  Dtn  dntitm si
+loirati    
+epoch 12 sample 4 bh  
+uhk  u,n Edh    uetuam; artawt ok  , er
+    co  rac i vrnmtT orap     
+a e t les dhgoea ui R  h
+ 31%|█████████████▎                             | 13/42 [03:40<08:15, 17.08s/it]epoch 13 sample 0 !nGI r n   t h th omsveiteh yv  am bpiern  a ohwi  o eaGoi a    ko  m dA.n  ahn  meblhop  s ud ml eo
+epoch 13 sample 1 enO n o nemm.sel sl .uto a p otAe a lnuAhio,w Tle r r.y o   u e ae csoa v dtrin'OSnu e m hsms T  h a
+epoch 13 sample 2 e ite ae oet e   e t  sso? r ndtnaa (uy f r  thi iuh  e   Zao  syhNBt r  cb  wthehhem   i 
+  h   eaa
+epoch 13 sample 3 nD|t  e rArs    uo e   z e e   enty,oir g eS    ristus ptEl  rh   otu d  l.e  wh s wd euu  oe iA
+phw
+epoch 13 sample 4 }X[xE tus s   r s   hLorg Lf''h c o, d ent  
+he  otr
+n tahheInel .m  r oy m     ne  otr ise   s h  m
+ 33%|██████████████▎                            | 14/42 [03:58<08:02, 17.24s/it]epoch 14 sample 0 xjtAi
+o o. sf anl sb  em
+ Am
+aro  sr n;F i  p    nm t Hn fgr Elte yllRw-    to  a n1Slrc   n ifg rsh
+epoch 14 sample 1  bnmes
+ eeAh
+wbrcc  le  l o ,tiMei 
+hp   eevss  e  
+ye ltmaduse   i
+ 
+ee  is ms et msaehhbton a l d,
+epoch 14 sample 2 C-tir e ate   te  
+ thn eeo  gsdv.o  i. a  ht eemSoiitT intEtn  sbe yeehet ,o  c ure ae  i t ymuTnd 
+epoch 14 sample 3 G2nwfMtn h ho   aesare maundedl h tu nned o   
+ doaohit   as snH  .Sm th4 Ft on eoaya M n  e     y  
+epoch 14 sample 4 'yMQ eotgrmstv S  tio ct se  e eNe eidier t  nmsgfi,sI y aP  q
+M ethpp  e  e
+ n o  i  s. oonw to  r 
+ 36%|███████████████▎                           | 15/42 [04:16<07:49, 17.38s/it]epoch 15 sample 0 MPd?Y ho bteh y u m f t ccoinmw n bOe rw uee  ysa  s'oaa mtteoaha
+i vha HoeCi.toti eto eeeasdgh,n  c
+epoch 15 sample 1 y aai     tEdi Ihrdt d e   o   .geh  G atd hl es.nieynud Intn  h p e e  o t  r wo  
+e o h ,eee
+eeao 
+epoch 15 sample 2 .
+r ed  s, d elIomieltoi, w a  oh atsST eI,    rSee B
+ r  o  Ikh ow erSas A n   o-. cI
+    to vo oi 
+epoch 15 sample 3 wvQvuuhedwdt  ,o   c rlofs  eo oo a tm   i tA noloyaA toee ;r  a nt  esig ah u le a tSoa  l'  rte   
+epoch 15 sample 4 ;ZCyts
+  'O g p a 
+os.esi n.y 
+aeu ne     wi  i Eoeed elhe a  st i ty  e h r t EWiaeea,ttw 
+oeud coa
+ 38%|████████████████▍                          | 16/42 [04:33<07:31, 17.35s/it]epoch 16 sample 0 0oy  Thwi   fhsf r  e r
+ t iSs  s harh  apeo. g.r n  o  tsknirine
+Mrso   i ho aad asnt t T
+hinpb isw
+epoch 16 sample 1 _kefoflIrd.n le  aiik  o   e It,i huitsy  betme  e h lm,an.Oe  r u Kstwatheep git  .e t o Ceo   titd
+epoch 16 sample 2 OTc   , tR tHfrc   yetAlA; fWr  o  tt i h eet   sotl  leneeaf  '. AeRgfn  o 
+aes. '  a 
+ whoom  f Eh
+epoch 16 sample 3 f:le ntem v  ae eliy  I oIt wo cl  e  nd  e  Uoe l f eee D lnIan n  o  i nwlo   reoe mriransn su ath
+epoch 16 sample 4  sci wk g
+ a o    y  r
+ s 
+l   tiuk'molLv oyTelu  oo rmdeb   te
+e irrars hic    to  b e.t  eae   rfe
+ 40%|█████████████████▍                         | 17/42 [04:50<07:13, 17.35s/it]epoch 17 sample 0  IpCI .l vd   ntaw t ss n  aprn 
+
+   t o  t  .stknmn
+ etda eo  Nn otb ec i ell noewh rthtodse d  tyn
+epoch 17 sample 1 Vov  nD da Ay o  l  t d?ra ht  d?r  y s o   b  shw  n b oFetyyee iio 
+ e L   seyH rah  eiay   Nri dh
+epoch 17 sample 2 wDo.   wtoa' es Rt pnhrw ahonh  tm pan  eotiyS neo  ee   l , eh ,ti  g nAlhsr ar uoil    ntmo t 
+ gI
+epoch 17 sample 3 v   f  p  h    ot  Ste inre ohe. eyawn  absoytoug
+  e l s nd d i   t rteic,r   us  nh cdoe  . EoEs 
+
+epoch 17 sample 4 eJppsfsot es   ,  et cee   
+et hi ho   ieth ee e st  e s  
+e s u ulemi a ysi  t l  dr lm oou t c  d 
+ 43%|██████████████████▍                        | 18/42 [05:08<06:55, 17.31s/it]epoch 18 sample 0 Foay  ttl ss  oechtvo e odoet i S oiF nthRot
+ cig ea yrttoEt gta    et  t G t Rsoe
+Telt,,mwO  r    W
+epoch 18 sample 1 K s8  h   i A.y d  i  tee  on t se y ,tSu S  ea   ,korsw e   r t eiytme  hffa t     onhre noevf !mo
+
+epoch 18 sample 2 h1ctiDhd  t  saI     he
+e   o rl sa,ot n hT  s csi irohm 
+loh,  t ed emhh e     e    sae  vsh  n    
+epoch 18 sample 3 Cj:ohh   o re   . so
+ a ted onipueOao   s   h fa n r nc t e ds Ynln woo
+We pao
+aNraSil  
+I e   s,ou 
+epoch 18 sample 4 ,tngl  h  arnosdrhoo  iica w  rbhh  o t enaooh  
+nroe  t mvs aod  m  a  imwee oiaIcTga
+en IHev    hs
+ 45%|███████████████████▍                       | 19/42 [05:25<06:36, 17.24s/it]epoch 19 sample 0 ]I}S  i hoti e  o tfss ta . sAOi o   'aiaeau    perc ese a  a s uuk trsl h h  ss
+S  TsIesof.st ue ds
+epoch 19 sample 1  W i
+
+eeD rhh o-s E       ctsnd.e ahesv el o  nshue  Cie El  osmr nye oOD  o   h d s S ou r M y  d r
+epoch 19 sample 2 u)DN tut utsagfco.ige   wt ll  t . l stoar D     I eK  e   os i
+  te o  ll r  ldb Dhoa SwyR 
+i crSd 
+epoch 19 sample 3 Mehp  rg,eo
+, oiiod  tlushoen hsa  tw  t
+ n . u ioe gf     a  hr dmdehwrftp n  C u nloak   u LcduaaA
+epoch 19 sample 4 rQiU T rs
+eto al oa tn
+ oi    Rh r,o c deo N tu tl
+lrtfotnau dr   n
+h  tg   h yo ei  WoW  sr
+aanaoee
+ 48%|████████████████████▍                      | 20/42 [05:42<06:18, 17.18s/it]epoch 20 sample 0 kk  ut  iidu  
+   sa SS d
+n -eihSb  to  h.g  Rirr ub uh oy 
+  enpd  Oeybeehesno   a,ru  rr reeases;e
+epoch 20 sample 1 cMiEo,eo l
+etr  .l eesoesewy i HAfe s tvnrds   l Noeool  ne;  uah i
+  ohw,v lhh
+sa htnho'i dm a c  
+
+epoch 20 sample 2 D sdlt ,  ea o lyo b u rtUhhe ,  lsae t h a
+foAvoe  whe  e t gilndi  ehaooi  irmrfwotl  u   .o  a  e
+epoch 20 sample 3 c7A
+eug eknh lot tresb  ees o h unstrhe
+  
+ Ld    bdh.al 
+ e ymh tf  tioopl h n soThr o
+ dctmhc  r  
+epoch 20 sample 4 _ten a Sis    d Uleio   wrtTc Wfnstmstree s To   nyyp li,  a
+b  e   u   e  I  e. drs e  
+
+lnm prt  s
+ 50%|█████████████████████▌                     | 21/42 [05:59<06:00, 17.18s/it]epoch 21 sample 0 LEl E  t tb  rt itTi e  slma  uarr  elsam nhghoa  isoi hItd   
+hteies f  yi
+ i y   
+e ef  ia o it si
+epoch 21 sample 1  _om    uot      a e f hasAbhe ulNr ts e   ssr.e     dhpr enfps u r  lt ewyb'hrahcaen
+a  t  .uiT
+wsh
+epoch 21 sample 2  u t
+eusi sa moh h n   i ,  w    b l  od oeL    a. sterc  d  wt  n ,r sh  nnr i   elol  ote ffeg 
+gr
+epoch 21 sample 3 AQx,ZoSe  io!i iim '      eP i,rmmi, stEwe  t h!g p oto asrs.,pa  oaAae.,   lg otee  b  
+     wsTr s
+epoch 21 sample 4 bD Vee r   hrdtnLrt rn   ie k nh eGr
+busi
+ dau hit  bn t gv f e o  a   mrhvPh Un i  
+h n am   arar  
+ 52%|██████████████████████▌                    | 22/42 [06:16<05:44, 17.25s/it]epoch 22 sample 0 8eoni u
+e eEr eththaoy  Ea aIs  ,  f  umo  io sut   fo eresn tad    t,  t
+ue tItyunt
+ a
+aoeee    nsd
+epoch 22 sample 1 ig3Sr Uh h shl  Cm   iee  ht
+an hlo wIe,I   hsnd trst
+lotnd eo
+ot sPdn
+e  l nd r ir  t  s      udo H
+epoch 22 sample 2 pN vt' igl aa .ee  prr     et Lsp he solhseio  eaeas seev,e
+l
+  eD i r  yeB    eo  w  oiO  oMne m r 
+epoch 22 sample 3 ;Os   escnrshh  a uotonwhdrtler hhh
+w
+  ak nbhwt   h   w    e  tecec  adf ynbe f Ot ylnh  io  ou .r 
+epoch 22 sample 4 ovb' ileuros
+  ,   e  et   Asoh  rn  m
+ein so Re ,r rohsPo    tt    
+neer, 
+sod ol T asdeTmhnt     e
+ 55%|███████████████████████▌                   | 23/42 [06:34<05:27, 17.26s/it]epoch 23 sample 0 Ca';i m ne           e th  gstaKouasuu.ptsferte , eer  r,  S  ge s a  euvtr Rdn nt  a  Oeo  eo s su.
+epoch 23 sample 1 4 eera   rss  seNte dr s, smai gI  ao s  m  y  tr uimi mreaeI eaptwsEinaiau ufsm;  o ,HsAe  h or otn
+epoch 23 sample 2 0ostleoie    aadon rlgebsno Ei  neot tv     ititmsaneecu  dod   
+ fn  t    ln nn eidmwl.Oui s  o  hR
+epoch 23 sample 3 S?  Aale o
+ ir n  tntg a     ern  ooeafrtht   m
+  oB v tm
+ inulehi  It,hoe  t aWt e    eo sa
+iaeiohe
+epoch 23 sample 4 il
+Inv  odhn  mlh mm nts hytos e3ee .i   g    agt h   t no .  eoiatorl   dbsI dhaf my  orsr e
+o   o 
+ 57%|████████████████████████▌                  | 24/42 [06:52<05:18, 17.69s/it]epoch 24 sample 0 3 jI g aU 
+ np  ehfrf.Lhneu ,ssrtn!k e e   e  gio eai tfasuca sas  dno   n  woa   omIa   t s  o oee 
+epoch 24 sample 1 ,ISu  a.w  a  et   laLa esrho   t ta    tsn l tI   ee    c   snnrgamntI ho   nO b  
+  l  
+mstl 'uiDt
+epoch 24 sample 2 n1n; h rtn trhfeoe atxmru' UA
+e  sa nia vnt  tl!     e  nyhe oas ye an   s unia; rr tT   .oreWstd  r
+epoch 24 sample 3 !&hcio  scmI    oI s ia on  o
+tutat  we o m ht Ifs tendn p t e tnoe   scitw  RasM t   e n   to d loO
+epoch 24 sample 4 CQFthooto  ght ta tsh    etmshiio  .  s Q   laoe
+eest uhh sl  yhs iStshcNa  s   p.      N
+ Lo r  iym
+ 60%|█████████████████████████▌                 | 25/42 [07:10<05:02, 17.81s/it]epoch 25 sample 0   M l rt e     .aIer  tn Id uNcn o;dwols     ng ? dyt e c ti  PauaE  ,
+s 
+ ieLHar   A    SI.n I
+gp o
+epoch 25 sample 1 Ax w fsd mmmt tshr  ii  et,oP  m noe  n usl u ,aaa Re Fhetseo      lwere o  sanTdrdlr ua    enTrd  c
+epoch 25 sample 2 j4W  w  em  o e  c iw. se 
+ l    mssh  d bmoa  b s ia  l
+o wdtu   e i eana s   sst  s. dg  rors si 
+
+epoch 25 sample 3 aGk N'lrah neTa ioi wgmi nde r  
+ t.   snh
+ee   t. htnd.a
+  dnirltamB s n WI ho    e  e riei  te    
+epoch 25 sample 4 `s.d o  t tnid ms n i i  nk    ln k es  t   ah,  Eea
+fhw   o ltlcl oe   t  o  ete   d        reavd  
+ 62%|██████████████████████████▌                | 26/42 [07:28<04:45, 17.86s/it]epoch 26 sample 0 ,Qotft  e   -  lut   ao  nr i . toof rog  ifeO
+ tne  Woi  oudiu.aot   .o
+rrrn  gc Tt    oo  
+  hth 
+
+epoch 26 sample 1 xbCl  i ma  e    teheA tt ci  W  y
+    cpp  tas lrr    f t  . bg    felonm  ?ee  Imd.a'nt ab eou 
+  
+epoch 26 sample 2 9Kgc    . le  ke y tt triekn
+es  mfuantasT asRe
+e uEMeaodnoe coes wu 
+   i
+ te h m b smid a ev 'irma
+epoch 26 sample 3 Taj? TdoWn   te h cle   geobt erp wo  h    o ekn IpttssMd uhi   sa a  Is
+edl  hs   nw   o eerim yO?t
+epoch 26 sample 4 (.S,il,ea dtt o piaor. ye ofonsoy hisr udt  arvtOhE ogm hs   iT
+   s'sis   rnhoeetu    .  Ine P.h[h 
+ 64%|███████████████████████████▋               | 27/42 [07:47<04:30, 18.04s/it]epoch 27 sample 0 iLiIwlamAo  l r o  t!c  C  ,    o   p iww
+   shn ooo   e gmoottnioaars ysc  nmfdicdta t 'i eIsp d  e
+epoch 27 sample 1 MvTAi  tdeu   r t  es isor W   hl nlee
+ uK d t e     scnsinudnIl   Bss ktn  t,
+tete iSG r r  deaela,
+epoch 27 sample 2 K  )Ath    I hlCohe  t    Auotrea sh sl nt   l  e. dt  a  slaaaheIoeme Ewfeipbrsde    TeFtu  l a-  e
+epoch 27 sample 3 zr yd ,h   Myo Thrd
+ ahgnen ir  eee  tte omdrteieraeo t oon    noade!t mtaa  w        c aot
+l'    hf
+epoch 27 sample 4 f4SEGVR T  aFU  ehoersl  wa  htiDt    m 
+ o hAy,Tto
+
+eFr  n aetratnea eys grn  aeiWwhryoilamtt 
+n  g
+ 67%|████████████████████████████▋              | 28/42 [08:04<04:10, 17.92s/it]epoch 28 sample 0  ,rei,n hti
+et tiN ta   i h md 
+  y,hlI  tlro w sgnli   lle
+h so  y .e hSayTei sau ew s eeee  iey ns
+epoch 28 sample 1 ]! k e  n o O CaeP wde ttie T ge.l 
+.f   om dac,thhetniue,ttu    r  r esI iiIin tobeoh tn   urdtys t
+epoch 28 sample 2 m !C  ai    
+rdeieSeaia ee
+e   
+ eWiu  dk  o, inm isom l tsl se qunnodsloyad hterdoi   ehcouO  mwcs 
+epoch 28 sample 3 'uEPrlidhadkoeLh  hsem   ne
+i ite ye noca,     t
+  ee  nsev)tn at    yso   ihnes  h   bf u   nrfatle
+epoch 28 sample 4 ?[&Kfy.yKtn H  ai fun,aea  frde  dtlOa hia ,o  h hus
+m   aii rey aooseee  o  s ci,f  e   t  taorA   
+ 69%|█████████████████████████████▋             | 29/42 [08:21<03:49, 17.63s/it]epoch 29 sample 0 <G b
+ 
+se lh yI
+,mdch. e o te.o o 
+ o eeaksT 
+ ,tee   oemo  tra hugto        drm   . stas   d rr emL
+epoch 29 sample 1 pp  oh?  t rsxE    
+l  fedmeS tmyootrmgmaahelecta OI uueesse  oegleaeuR  yth  iced ,or pn. ci.,   si
+epoch 29 sample 2 -y3  dotl  rdhI  l  e  ein  tye te  sf'  oeen lohkat ei n a  lhi d.tur'o,  f    f m  eo icrte     en
+epoch 29 sample 3 0Fsaottni  n  e ftio ooa t o
+s    e yt   s   Wtt   rt    ttde     o it    .n,wusieeou li    a    mh 
+epoch 29 sample 4 YCs sl t ra
+e lukah hT  rtuaVrn s
+tc   hnn  usd   c    iso    eis el sirooyahoredi  ol e heEntto. wy
+ 71%|██████████████████████████████▋            | 30/42 [08:39<03:30, 17.54s/it]epoch 30 sample 0 C    yahr totd
+Haset  s Sato,d led gtu hl   onhoe lho slteoie  t mior.    yHhs
+ap
+.  
+ao   iaue  nBl
+epoch 30 sample 1 
+rSap h    tat sCtem ahasoo.r ulanoe '  dv oa   wgu     oethniohol .io tl tnut  ga       wrstau.eeip
+epoch 30 sample 2 .Mktaohe i .eud  nSahashs lagotbsehe   ao   
+n   i'n e , 
+or  a feryp rimn.t i  !m  mofi etu ttrh   
+epoch 30 sample 3 <  eo  hltvn  o   yme toho rlrOrhI.eE  Aenauuoi kkes  sat  Ggt,  ila  owMhtAr   oite  entmoe  t mten
+epoch 30 sample 4    n     adtedil          f     oad d  uo  ucoleope   ths      teyetsatraeuors.tee   .ntnnu!e oaheL
+
+ 74%|███████████████████████████████▋           | 31/42 [08:56<03:13, 17.60s/it]epoch 31 sample 0 "jdoFou  wga hatm
+    i  e  wm     d'na   pee thl     hU ,hro     iimptfhn w  se    koehl     ttInru
+epoch 31 sample 1 at hH          ohbosv      g mr ba      tn!l  o
+ es
+
+ m  onsPics  iv.
+i iknI    Ie,i mhs fro ,au
+ .a
+epoch 31 sample 2 ,ae  k  t  loarshaeswoionn foT  Cl    ue iu      dnri  go     g  mb,fh,ae   I    Esouatto heeeyrhhym
+epoch 31 sample 3 a!otRe  ru foo.h     k  ed onnda  t ule,ont L  
+ eoelt  - Bie    Iwe       ttwy.d hn mgNhyDo.hs dnmh
+epoch 31 sample 4 sRRte      ai  eh,
+     aes yesh oeoo ro taon,iaa  ar  sn  a  e   reorre     i, mr  .f  I
+ou  l aph 
+ 76%|████████████████████████████████▊          | 32/42 [09:15<02:59, 17.93s/it]epoch 32 sample 0 arp
+y oioi  lrttho uIns   henr ae  dhaaasu
+  to toePanhtrnoeaa  eit  os  ee.a  leshrisn  o  t whCeO 
+epoch 32 sample 1 
+ plasuree    e?or  yiiaEl ge ns;f le   focOht  s,o     nngle      et  sadifaon  Er  icscnyAastnieeh
+epoch 32 sample 2 HCsNa  ey IosrGs?tw    slittirtcen     Eiv  pte    my    r. s.mearaeibt    
+rLtoi.  tt    ad ou d,,u
+epoch 32 sample 3 oWe hh'eaasmaoIA   Le ne  br  ou  bs baaenwat    .se oe u, Orachtaon  nlDlr    spnswwsidtwshr wsteua
+epoch 32 sample 4 t]D   aM aA stoos ttEins
+  hTld  hE Itittl  e
+   
+  Aie     y  s o, et  tr    tat taard Oy  C  eeR  
+ 79%|█████████████████████████████████▊         | 33/42 [09:34<02:43, 18.12s/it]epoch 33 sample 0 W,mdst n e e e o e n e e e e e i o r i e n e n e n e a o e r e o e e e i e r e e e o e e e e r o e e
+epoch 33 sample 1 .umtt n e o e o e e e e s e e n e e r e e e e e e e h o e e i o e o o i e o a r e e o e e h e e e r 
+epoch 33 sample 2 tc|ttta e e e e e i e h n o e a n e e e e r o e s e e o a e e e o e o e o o e o e e e o e i e e i e 
+epoch 33 sample 3 Wdastttt o o e n e e e e a o e e n e e e e o i t o e e e e e e n e e e i n o e a e o e e o e o e o e
+epoch 33 sample 4 1WAatto e h e e e o o o e r e e e e e e e e e e h e o r e e e o e e u e o e e e e o i e e e e e o o 
+ 81%|██████████████████████████████████▊        | 34/42 [09:51<02:23, 17.95s/it]epoch 34 sample 0 ]sstt e a e r e e o e r e e e e o e e t e e e e e o e o e t t e e e e h e e e n e t n n e e e o e o 
+epoch 34 sample 1 Bgdtt o e e e e o e e e e e e e e e t e e e e a e e o o o e e e t e e o a e e o t a e e r e e e o e 
+epoch 34 sample 2 (stttse e e e e e a a e e o o e o e e o o e t e e e e e e e t o e o t e e e e e e e o t o e e o e o 
+epoch 34 sample 3 r5atttte e a e e o o e a e e o e e e o o e o e t e e e e o e o n e t e o e e e e n e o e o t o e e o
+epoch 34 sample 4 Vtitt e e e e e e e o e e e e e a e e e e e e e e e e n e e n e e a e o o h e e o e a n o o o e t e 
+ 83%|███████████████████████████████████▊       | 35/42 [10:10<02:06, 18.07s/it]epoch 35 sample 0 5Ldst e o e e o e e e e e e a e e o e e e e t e e e e e e t e e e e e e e o e t e e e e e e e e o e 
+epoch 35 sample 1 5Ndst e e t o i n t e e e e e e e e o e e e e e o e e e e o o o e e e o e e t e e e o e e e e e e e 
+epoch 35 sample 2 dihsh e t o o e e e e e e e e a e e e e e e e e e e t e e t n e e o n e o o e e e e t e e e e e e e 
+epoch 35 sample 3 sstsh e e e e e e e e e r e e e e t o o e e e e o o t o e o e e n e e e e e o t o e e e e e e e a e 
+epoch 35 sample 4 dPhst e o e e e e e e t o e e e o e e e e t o e e e o e e e e e t e e e o e e e t e e e e o a e e e 
+ 86%|████████████████████████████████████▊      | 36/42 [10:28<01:48, 18.13s/it]epoch 36 sample 0 rssssh e o o t o e t e e e e e e t e e e e e o o e h t e o e e t a e t e e e e e e e e e e e e t e a
+epoch 36 sample 1 dhsst e e e e e e e e o t o o e o t e e e e o e e e e t e e e e o e e e e t e e e e e e e e e e e e 
+epoch 36 sample 2 F,sssss e n e e e e e e e e e e e t e e a e e e e e o t e e e e e e e e o o e e e e t e o o e t e e 
+epoch 36 sample 3 nPsss e e e e o o e o e e e e e o e e e e e e e e t t t e e e e e e e o o o e t e o o e e t e e e e 
+epoch 36 sample 4 p.isst e o e a e e e e o t t e e e o t e e e e a e e e e i e e o e t e a e a e e e o e a e e e e o e
+ 88%|█████████████████████████████████████▉     | 37/42 [10:47<01:31, 18.27s/it]epoch 37 sample 0 oasss e o e e e e o e e e e e o e e e e o t e e e e e t o t e e t e e e e o o e e t e e e e e e e e 
+epoch 37 sample 1 <
+shsss e e e e e t e e e o e e e t n e e e h e t e e e e e e e e e e e o o e e e e e e t e a t e t 
+epoch 37 sample 2 mbsssr e e e e n t e e t o o e e e e e o e e e e e o e t e t e e e e e o e e o t e t e e e e e o e e
+epoch 37 sample 3 Uassa e e e o e o e e e e e e t t e t e e e o e e e e e e e e e e e e t e e e e e t e e e t e t e e 
+epoch 37 sample 4 I
+sss e e e e e e t e t t o o t e o e e e e o t e e t o o o e e e e o t o e e e e e t o e e e e e e 
+ 90%|██████████████████████████████████████▉    | 38/42 [11:04<01:12, 18.02s/it]epoch 38 sample 0 Ahssa t e o e o e a e e e e t e e a e e e t e e e e a e e o o e e e e e e e e e t e a t o e o e o e 
+epoch 38 sample 1 A}ssh e e e o t e e o t e e o e e o e e e e e e t o e o e e t e t e e o e t e t t e e o e a e e o e 
+epoch 38 sample 2 s
+rss o o e t a t e a t e e t e a e e e e o o e t e e t o t e e e o e t t a e e e e t e t t e e e e 
+epoch 38 sample 3 khrsa t t e e t e e e e a e e t e e e o e o e e o t e t o e e e e e e o e e e e o t e e e e e e e e 
+epoch 38 sample 4 Yhhsh o o o t e t e e o o t o t e e e e e t t e e t t e t e e e o e a e o e e e e e a e o t t e o e 
+ 93%|███████████████████████████████████████▉   | 39/42 [11:22<00:54, 18.14s/it]epoch 39 sample 0 rhsss e e e o t e e o e t e t e e t e e e e e e o e e o e o t e e e e t e e e e e t t e e t t t e e 
+epoch 39 sample 1 a`hs e e o e e e t t e o e e e e e o e e e o e o e t e o o e e e t e t e e o e o e o o e e e e e e e
+epoch 39 sample 2 w
+ss o e e e e o t e a e e e e e o e e e t e o e e t t e e t e e a e e e e e o e o e e e o e e e e e
+epoch 39 sample 3 sissa e t t o e e e e o a o e e e e e t t t e e e e e e e e e t e e e e o e e e t e e e o e e e t e 
+epoch 39 sample 4 (ssss o e e e e e o t e t e e e e e t e e e e t o o t e t e e e o t e e e e e o e e e t e o e e e e 
+ 95%|████████████████████████████████████████▉  | 40/42 [11:41<00:36, 18.38s/it]epoch 40 sample 0 |hssh e t e t a t e t t t e e t e t e e t e t e e e t t e e o e e e e t e e e e e o t e e e e t e t 
+epoch 40 sample 1 Ahssa t t t e e e e a t e e e e e e o t e e e e e o e e e e e e e e e t o e e e e t o e e e e e o e 
+epoch 40 sample 2 tssss e e e e e e e t e e e e e e t e e e e e e o o e e e t t e e t t e e e e e e o e o t e t e e e 
+epoch 40 sample 3 <nrsh e o e t e t e e e e a e e t t e t e e t e o e e t t a e e e o t t e e t e o t e e e e e e t o 
+epoch 40 sample 4 EIshh e e e t t t e e e t e t e e o a t e t t e a o e o t t e e e e e e e o e e e e o e a o t e e e 
+ 98%|█████████████████████████████████████████▉ | 41/42 [11:59<00:18, 18.23s/it]epoch 41 sample 0 T
+hhst e o e e t o e t e e e e e t e e e e e e e e o t e e e o e e e e e e t e e o e t e e t t e e e
+epoch 41 sample 1 dIhsa o e e o t e e e e e e e t e e o e o o e t e t e e e t e e o e o e e e e o e t o e o t e e e a 
+epoch 41 sample 2 5assa e o e t e e t o o o t e t t e t e e o e a e e o e o o e t e e e e e o t e e e e e t e e t e e 
+epoch 41 sample 3 9assa e e e e e e e o e o e t t e e t e o t o e t e e e t e e t e e t o e e e o e e e e e e t e e e 
+epoch 41 sample 4 `sssh e e e e e e e e o e e e e e e t e o e e e o e e t o e t t o e e e o t e t e e a e e e t e e e 
+100%|███████████████████████████████████████████| 42/42 [12:18<00:00, 17.58s/it]
+Exit status: 0
+
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+
+[Process completed]
+
